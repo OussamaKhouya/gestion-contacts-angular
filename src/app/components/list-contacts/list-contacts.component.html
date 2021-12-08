@@ -1,0 +1,33 @@
+<app-add-contact></app-add-contact>
+<ul class="collection with-header" *ngIf="contacts?.length > 0; else noContacts">
+  <li class="collection-header">
+    <h4>La liste des contacts</h4>
+  </li>
+  <li class="collection-item" *ngFor="let contact of contacts">
+    <div class="row">
+      <div class="s12 col">
+        <strong>{{contact.name}} </strong> : {{contact.telephone}}
+        <button (click)="getSelectedContact(contact)" class="btn secondary-content waves-effect waves-light"> <i
+            class="fa fa-pencil"></i></button>
+      </div>
+    </div>
+    <div class="row" *ngIf="showEditSection && contact.id == selectedContact.id">
+      <div class="s12 col">
+        <div class="row col s12 m6 input-field">
+          <i class="fa fa-user prefix"></i>
+          <input type="text" name="name" [(ngModel)]="contact.name">
+        </div>
+      </div>
+      <div class="s12 col">
+        <div class="row col s12 m6 input-field">
+          <i class="fa fa-phone prefix"></i>
+          <input type="text" name="telephone" [(ngModel)]="contact.telephone">
+        </div>
+      </div>
+      <button class="btn orange" (click)="updateContact(contact)">UPDATE</button>
+      <button class="btn black" (click)="deleteContact(contact)">DELETE</button>
+
+    </div>
+  </li>
+</ul>
+<ng-template #noContacts>Pas de contacts</ng-template>
