@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "firebase": "^9.6.0",
+    "firebase-tools": "^9.23.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "materialize-css": "^1.0.0",
